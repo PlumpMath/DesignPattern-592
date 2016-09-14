@@ -1,0 +1,39 @@
+package HeadFirst.Component;
+
+import java.util.Iterator;
+
+/**
+ * @author NikoBelic
+ * @create 9/13/16 10:33
+ */
+public class Waitress
+{
+    MenuComponent allMenus;
+    public Waitress(MenuComponent menuComponent)
+    {
+        this.allMenus = menuComponent;
+    }
+
+    public void printMenu()
+    {
+        allMenus.print();
+    }
+
+    public void printVegetarianMenu()
+    {
+        Iterator iterator = allMenus.createIterator();
+        System.out.println("\nVEGETARIAN MENU");
+        while (iterator.hasNext())
+        {
+            MenuComponent menuComponent = (MenuComponent) iterator.next();
+            try
+            {
+                if (menuComponent.isVegetarian())
+                    menuComponent.print();
+            }catch (Exception e)
+            {
+
+            }
+        }
+    }
+}
